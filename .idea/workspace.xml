@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58c2985b-d0bd-4ae8-af82-074d3ef69ab2" name="Default" comment="" />
+    <list default="true" id="58c2985b-d0bd-4ae8-af82-074d3ef69ab2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -57,27 +61,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rules000Through002Test.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Rules000Through002Test.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/foo/bar/qra/test/Rules000Through002Test.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="85">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1570" />
-    <option name="y" value="190" />
+    <option name="x" value="217" />
+    <option name="y" value="50" />
     <option name="width" value="1516" />
     <option name="height" value="889" />
   </component>
@@ -267,9 +284,13 @@
     <history-entry file="Rules000Through002Test - 2018.08.28 at 12h 51m 47s.xml">
       <configuration name="Rules000Through002Test" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
+    <history-entry file="Rules000Through002Test - 2018.08.28 at 12h 55m 04s.xml">
+      <configuration name="Rules000Through002Test" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1570" y="190" width="1516" height="889" extended-state="0" />
+    <frame x="217" y="50" width="1516" height="889" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Messages" order="4" />
@@ -278,12 +299,12 @@
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5006868" side_tool="true" weight="0.32978722" />
       <window_info anchor="right" id="Maven Projects" order="1" />
       <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.32978722" />
-      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="3" sideWeight="0.49931318" weight="0.32978722" />
-      <window_info id="Learn" order="0" />
+      <window_info id="Learn" order="0" weight="0.32967034" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
@@ -343,8 +364,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/com/foo/bar/qra/test/Rules000Through002Test.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="85">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>

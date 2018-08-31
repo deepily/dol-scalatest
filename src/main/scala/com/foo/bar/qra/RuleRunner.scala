@@ -12,7 +12,6 @@ object RuleRunner {
     * @param args: args( 0 ) = begining index, args( 1 ) = end index, setting both to same number allows us to run *ONE* rule
     */
   def main( args: Array[ String ] ) {
-
     println( "Welcome to Rule Runner" )
 
     val foo = "1st parameter?"

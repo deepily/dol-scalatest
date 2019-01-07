@@ -1,0 +1,121 @@
+**Current Period**
+local begpartdate 01oct2017
+local qtrend 30sep2018
+
+**Previous Period**
+local prevbegpartdate 01jul2017
+local prevqtrend 30jun2018
+
+val partsplit = "( AdultWIOA IN ( 1, 2, 3 ) OR DislocatedWorkerWIOA IN ( 1, 2, 3 ) OR WagnerPeyserEmploymentServiceWIOA IN ( 1 ) OR YouthWIOA IN ( 1, 2, 3 ) )"
+
+local msgden "(`partsplit' & !missing(PIRL900) & PIRL900 <= d(`qtrend') & (missing(PIRL901) | (PIRL901 >= d(`begpartdate') & PIRL901 <= d(`qtrend'))) &
+!missing(PIRL1811) & (missing(PIRL1813) | (PIRL1813 >= d(`begpartdate') & PIRL1813 <= d(`qtrend'))) & (inlist(PIRL923,0,7,.)))"
+
+val msgden = "( `partsplit' AND DateOfProgramEntryWIOA IS NOT NULL AND DateOfProgramEntryWIOA <= to_date( '2018-09-30' ) AND
+              ( DateOfProgramExitWIOA IS NULL OR ( DateOfProgramExitWIOA >= to_date( '2017-10-01' ) AND DateOfProgramExitWIOA <= to_date( '2018-09-30' ) ) ) AND
+              DateEnrolledDuringProgramParticipationInAnEducatio IS NOT NULL AND
+              ( missing( DateCompletedDuringProgramParticipationAnEducation ) OR ( DateCompletedDuringProgramParticipationAnEducation  >= to_date( '2017-10-01' ) AND DateCompletedDuringProgramParticipationAnEducation  <= to_date( '2018-09-30') ) )
+              AND ( OtherReasonsForExitWIOA IN ( "00", "07", "" ) ) )"
+
+local msgnum "(`msgden' AND ( ( DateOfMostRecentMeasurableSkillGainsEducationalFun  >= to_date( '2017-10-01' ) AND DateOfMostRecentMeasurableSkillGainsEducationalFun  <= to_date( '2018-09-30' ) ) OR
+              ( ( DateAttainedRecognizedCredentialWIOA >= to_date( '2017-10-01' ) AND DateAttainedRecognizedCredentialWIOA <= to_date( '2018-09-30' ) ) AND TypeOfRecognizedCredentialWIOA = 1) OR
+              ( ( DateAttainedRecognizedCredential2 >= to_date( '2017-10-01' ) AND DateAttainedRecognizedCredential2 <= to_date( '2018-09-30' ) ) AND TypeOfRecognizedCredential2 = 1 ) OR
+              ( ( DateAttainedRecognizedCredential3 >= to_date( '2017-10-01' ) AND DateAttainedRecognizedCredential3 <= to_date( '2018-09-30' ) ) AND TypeOfRecognizedCredential3 = 1) OR
+              ( DateOfMostRecentMeasurableSkillGainsPostsecondaryT >= to_date( '2017-10-01' ) AND DateOfMostRecentMeasurableSkillGainsPostsecondaryT <= to_date( '2018-09-30' ) ) OR
+              ( DateOfMostRecentMeasurableSkillGainsSecondaryTrans >= to_date( '2017-10-01' ) AND DateOfMostRecentMeasurableSkillGainsSecondaryTrans <= to_date( '2018-09-30' ) ) OR
+              ( DateOfMostRecentMeasurableSkillGainsTrainingMilest >= to_date( '2017-10-01' ) AND DateOfMostRecentMeasurableSkillGainsTrainingMilest <= to_date( '2018-09-30' ) ) OR
+              ( DateOfMostRecentMeasurableSkillGainsSkillsProgress >= to_date( '2017-10-01' ) AND DateOfMostRecentMeasurableSkillGainsSkillsProgress <= to_date( '2018-09-30' ) ) ) )"
+
+
+
+local prevmsgnum "(`msgden' AND ( ( DateOfMostRecentMeasurableSkillGainsEducationalFun  >= to_date( '2017-07-01' ) AND DateOfMostRecentMeasurableSkillGainsEducationalFun  <= to_date( '2018-06-30' ) ) OR
+                  ( ( DateAttainedRecognizedCredentialWIOA >= to_date( '2017-07-01' ) AND DateAttainedRecognizedCredentialWIOA <= to_date( '2018-06-30' ) ) AND TypeOfRecognizedCredentialWIOA = 1) OR
+                  ( ( DateAttainedRecognizedCredential2 >= to_date( '2017-07-01' ) AND DateAttainedRecognizedCredential2 <= to_date( '2018-06-30' ) ) AND TypeOfRecognizedCredential2 = 1) OR
+                  ( ( DateAttainedRecognizedCredential3 >= to_date( '2017-07-01' ) AND DateAttainedRecognizedCredential3 <= to_date( '2018-06-30' ) ) AND TypeOfRecognizedCredential3 = 1) OR
+                  ( DateOfMostRecentMeasurableSkillGainsPostsecondaryT >= to_date( '2017-07-01' ) AND DateOfMostRecentMeasurableSkillGainsPostsecondaryT <= to_date( '2018-06-30' ) ) OR
+                  ( DateOfMostRecentMeasurableSkillGainsSecondaryTrans >= to_date( '2017-07-01' ) AND DateOfMostRecentMeasurableSkillGainsSecondaryTrans <= to_date( '2018-06-30' ) ) OR
+                  ( DateOfMostRecentMeasurableSkillGainsTrainingMilest >= to_date( '2017-07-01' ) AND DateOfMostRecentMeasurableSkillGainsTrainingMilest <= to_date( '2018-06-30' ) ) OR
+                  ( DateOfMostRecentMeasurableSkillGainsSkillsProgress >= to_date( '2017-07-01' ) AND DateOfMostRecentMeasurableSkillGainsSkillsProgress <= to_date( '2018-06-30' ) ) ) )"
+
+
+
+local prevmsgden "(`partsplit' AND DateOfProgramEntryWIOA IS NOT NULL AND DateOfProgramEntryWIOA  <= to_date( '2018-06-30' ) AND ( DateOfProgramExitWIOA IS NULL OR
+                  ( DateOfProgramExitWIOA  >= to_date( '2017-07-01' ) AND DateOfProgramExitWIOA  <= to_date( '2018-06-30') ) ) AND !missing( DateEnrolledDuringProgramParticipationInAnEducatio ) AND (missing( DateCompletedDuringProgramParticipationAnEducation ) OR
+                  ( DateCompletedDuringProgramParticipationAnEducation  >= to_date( '2017-07-01' ) AND DateCompletedDuringProgramParticipationAnEducation  <= to_date( '2018-06-30') ) ) AND ( OtherReasonsForExitWIOA IN ( "00", "07", "" ) ) )"
+
+
+
+local icsvc "( DateOfFirstIndividualizedCareerService IS NOT NULL OR ReceivedTrainingWIOA != 1 )"
+local tsvc "( ReceivedTrainingWIOA = 1 )"
+local total "( DateOfFirstBasicCareerServiceStaffAssisted IS NOT NULL OR DateOfFirstIndividualizedCareerService IS NOT NULL OR ReceivedTrainingWIOA = 1 )"
+
+** 342 Measurable Skill Gains -- Individualized Career Services**
+count if `FS' AND `icsvc' AND `msgnum'
+scalar ICmsgnum = r(N)
+count if `FS' AND `icsvc' AND `msgden'
+scalar ICmsgden = r(N)
+putexcel J56 = (ICmsgnum/ICmsgden), sheet(`report' )
+
+** 343 Measurable Skill Gains -- Training Services**
+count if `FS' AND `tsvc' AND `msgnum'
+scalar TSmsgnum = r(N)
+count if `FS' AND `tsvc' AND `msgden'
+scalar TSmsgden = r(N)
+putexcel K56 = (TSmsgnum/TSmsgden), sheet(`report' )
+
+**344 Measurable Skill Gains -- Total Current Period**
+count if `FS' AND `total' AND `msgnum'
+scalar TCmsgnum = r(N)
+count if `FS' AND `total' AND `msgden'
+scalar TCmsgden = r(N)
+putexcel L56 = (TCmsgnum/TCmsgden), sheet(`report' )
+
+**345 Measurable Skill Gains -- Total Previous Period**
+count if `FS' AND `total' AND `prevmsgnum'
+scalar TPmsgnum = r(N)
+count if `FS' AND `total' AND `prevmsgden'
+scalar TPmsgden = r(N)
+putexcel M56 = (TPmsgnum/TPmsgden), sheet(`report' )
+
+
+
+// DATES
+begpartdate 01oct2017
+qtrend 30sep2018
+
+local msgden "(`partsplit' & !missing(PIRL900) & PIRL900 <= d(`qtrend') & (missing(PIRL901) |
+                                                (PIRL901 >= d(`begpartdate') &
+                                                 PIRL901 <= d(`qtrend'))) & !missing(PIRL1811) & (missing(PIRL1813) |
+                                               (PIRL1813 >= d(`begpartdate') &
+                                                PIRL1813 <= d(`qtrend'))) & (inlist(PIRL923,0,7,.)))"
+
+local msgnum "(`msgden' & ((PIRL1806 >= d(`begpartdate') & PIRL1806 <= d(`qtrend')) |
+                          ((PIRL1801 >= d(`begpartdate') & PIRL1801 <= d(`qtrend')) & PIRL1800 == 1) |
+                          ((PIRL1803 >= d(`begpartdate') & PIRL1803 <= d(`qtrend')) & PIRL1802 == 1) |
+                          ((PIRL1805 >= d(`begpartdate') & PIRL1805 <= d(`qtrend')) & PIRL1804 == 1) |
+                           (PIRL1807 >= d(`begpartdate') & PIRL1807 <= d(`qtrend')) |
+                           (PIRL1808 >= d(`begpartdate') & PIRL1808 <= d(`qtrend')) |
+                           (PIRL1809 >= d(`begpartdate') & PIRL1809 <= d(`qtrend')) |
+                           (PIRL1810 >= d(`begpartdate') & PIRL1810 <= d(`qtrend'))))"
+
+
+
+********Reporting Periods for Quarter Ending 12/31/17  ROLLING 4 QTRS************
+**Current Period**
+local begpartdate 01oct2017
+local qtrend 30sep2018
+local begexitdate 01jul2017
+local endexitdate 30jun2018
+local beginq2date 01oct2016
+local endq2date 30sep2017
+local beginq4date 01jul2016
+local endq4date 31mar2016
+**Previous Period**
+local prevbegpartdate 01jul2017
+local prevqtrend 30jun2018
+local prevbegexitdate 01apr2017
+local prevendexitdate 31mar2018
+local prevbeginq2date 01jul2016
+local prevendq2date 30jun2017
+local prevbeginq4date 01jul2016
+local prevendq4date 31dec2016
